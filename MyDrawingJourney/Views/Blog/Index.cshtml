@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Post>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px;}
+    
+    /* Set gray background color and 100% height */
+   
+    .first-drawings  {
+        display: flex;
+        flex-direction:row;
+        justify-content: space-between;
+        
+    }
+    .first-drawings img {
+        width: 25%;
+    }
+    .progress-drawings{
+         display: flex;
+        flex-direction:row;
+        justify-content: space-between;
+    }
+    .progress-drawings img{
+        width:25%;
+    }
+    p{
+       font-family: "Lucida Console", "Courier New", monospace;
+    }
+   h1, h3{
+       font-family:"Times New Roman", Times, serif;
+   }
+   .posts{
+       font-size: 50px;
+       font-family: "Lucida Console", "Courier New", monospace;
+   }
+  </style>
+</head>
+<body>
+     
+ 
+
+    <div class="container-fluid text-center"> 
+      <h1>How it all began</h1>
+      <p>
+          One day in November me and mom visited a random local shop that had a small art section. 
+          I saw a set of cheap brush markers and decided to buy them. The same night I drew what was the childish portrait an 
+          adult could make. Nevertheless, I liked drawing it. After few days I bought some watercolors and albeit bad, my amateur drawings amazed me.
+          I was hooked. For the next seven months until now I didn't stop drawing with different mediums. I practiced my new hobby everyday.
+          Gradually I saw improvement and more people showed interest in my art.
+      </p>
+      <hr>
+      <h3>The mediums I use</h3>
+      <p>I began drawing with watercolors, but then began using graphite pencils more. When I found charcoal I fell in love,
+          especially after watching charcoal's masters do their craft. Most recently I began experimenting with goache and little oil.
+          I love gouache and hope some day I'll become really good at it.
+      </p>
+      <hr>
+      <h3>My first drawings</h3>
+      <p>Here are some of the first drawings I ever made.</p>
+      <div class = "first-drawings">
+      <img src="img/home/firstdrawing.jpg" class="img-rounded" alt="First drawing">
+      <img src="img/home/dara.jpg" class="img-rounded" alt="img">
+      <img src="img/home/girl.jpg" class="img-rounded" alt="img">
+      </div>
+      <hr>
+      <h3>The progress I saw</h3>
+      <p>For just few months the difference was palpable. But only after half an year I could say with certainty that I had improved.</p>
+       <div class = "progress-drawings">
+      <img src="img/home/stromae.jpg" class="img-rounded" alt="First drawing">
+      <img src="img/home/leo.jpg" class="img-rounded" alt="img">
+      <img src="img/home/watercolorprogress.jpg" class="img-rounded" alt="img">
+      <img src="img/home/model.jpg" class="img-rounded" alt="img">
+      </div>
+
+      <hr>
+      <h3>Drawing and programming</h3>
+      <p>I found programming for the first time in 2015 when I decided to join a Harvard class online called CS50, a course 
+          about programming for beginers with C language. I loved it and when I stoped studing I missed it. The winter of 2022 I enrolled in SoftUniversity with the
+          decision to become a programmer. To this day this is my biggest dream. And although drawing has been fun and entertaining
+          I aspire most to become a great programmer. Programming and drawing fill my life with self-content and satisfaction. I cant't wait to see how much I will learn and grow in the future.
+      </p>
+    </div>
+    <hr>
+    <div>
+        <ul class="posts">
+            @if (Model != null)
+            {
+                @foreach (var post in Model)
+                {
+                    <li>
+                        <a asp-controller = "Blog" asp-action="Posts" asp-route-id = "@post.Id">
+                            @post.Title
+                        </a>
+                        -
+                        <a asp-controller = "Blog" asp-action="Edit" asp-route-id = "@post.Id">
+                            Edit
+                        </a>
+                        -
+                        <a asp-controller = "Blog" asp-action="Remove" asp-route-id = "@post.Id">
+                            Remove
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+</body>
+</html>

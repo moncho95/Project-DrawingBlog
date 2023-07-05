@@ -1,0 +1,40 @@
+﻿@model Post
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Create Posts</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+ input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+  </style>
+</head>
+<body>
+<div>
+	<form method="post">
+		<div>
+			<label>Title</label>
+			<input asp-for= "Title"/>
+
+		</div>
+		<div>
+			<label>Body</label>
+			<input asp-for="Body"/>
+		</div>
+		<input type = "submit" value= "Submit"/>
+	</form>
+</div>
+</body>
+</html>

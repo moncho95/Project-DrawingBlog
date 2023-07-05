@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Sketch";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sketch</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+ p{
+       font-family: "Lucida Console", "Courier New", monospace;
+    }
+   h1, h3{
+       font-family:"Times New Roman", Times, serif;
+   }
+   img{
+       width:20%;
+   }
+  .sketch{
+      display:flex;
+     flex-direction:column;
+      justify-content:space-between;
+  }
+  .first-row{
+      display:flex;
+     flex-direction:row;
+     justify-content:space-around;
+     
+  }
+   .second-row{
+      display:flex;
+     flex-direction:row;
+      justify-content:space-around;
+      
+  }
+   .third-row{
+      display:flex;
+     flex-direction:row;
+      justify-content:space-around;
+      
+  }
+  </style>
+</head>
+<body>
+
+    <div class="container-fluid text-center"> 
+      <h1>My sketches</h1>
+      <p>
+          Over the past half year I've made hundreds of sketches mostly with graphite pencils. Some 
+          of them were good, others not as much. 
+      </p>
+      <hr>
+      <h3>The sketches I made</h3>
+      <p>Here are some of my favorite sketches. Some are with graphite pencils others with charcoal sticks.
+      </p>
+      <hr>
+      
+      <div class = "sketch">
+          <div class = "first-row">
+      <img src="~/img/sketches/leo.jpg" class="img-rounded" alt="First drawing">
+      <img src="~/img/sketches/little-mermaid.jpg" class="img-rounded" alt="img">
+      <img src="~/img/sketches/modelfive.jpg" class="img-rounded" alt="img">
+      <img src="~/img/sketches/sketch.jpg" class="img-rounded" alt="img">
+      </div><hr>
+      <div class = "second-row">
+       <img src="~/img/sketches/modeltwo.jpg" class="img-rounded" alt="First drawing">
+      <img src="~/img/sketches/modelthree.jpg" class="img-rounded" alt="img">
+      <img src="~/img/sketches/modelfour.jpg" class="img-rounded" alt="img">
+      <img src="~/img/sketches/jennaortega.jpg" class="img-rounded" alt="img">
+      </div><hr>
+          <div class = "third-row">
+       <img src="~/img/sketches/wednesday.jpg" class="img-rounded" alt="First drawing">
+      <img src="~/img/sketches/wednesdayxavier.jpg" class="img-rounded" alt="img">
+      <img src="~/img/sketches/modelsix.jpg" class="img-rounded" alt="img">
+      <img src="~/img/sketches/johnnydepp.jpg" class="img-rounded" alt="img">
+      </div>
+      </div>
+      
+    </div>
+    <hr>
+    
+
+</body>
+</html>

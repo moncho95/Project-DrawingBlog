@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Gouache";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sketch</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+ p{
+       font-family: "Lucida Console", "Courier New", monospace;
+    }
+   h1, h3{
+       font-family:"Times New Roman", Times, serif;
+   }
+   img{
+       width:35%;
+   }
+  .sketch{
+      display:flex;
+     flex-direction:column;
+      justify-content:space-between;
+  }
+  .first-row{
+      display:flex;
+     flex-direction:row;
+     justify-content:space-around;
+     
+  }
+  #center-image{
+      width:50%;
+      align-item:center;
+  }
+ 
+  </style>
+</head>
+<body>
+
+    <div class="container-fluid text-center"> 
+      <h1>My gouache</h1>
+      <p>
+          I found gouache just recently and loved it more than watercolors. It's texture is thicker, 
+          which makes it perfect for illustrations.
+      </p>
+
+      <hr>
+      <img id ="center-image" src="~/img/gouache/gouache.jpg" class="img-rounded" alt="First drawing">
+      <hr>
+      <h3>The gouache I made</h3>
+      <p>
+          I haven't yet made many gouache paintings. By far my favorites are Harry Potter and Ron Weasley's portraits.
+          Here they are: 
+      </p>
+      <hr>
+      
+      <div class = "sketch">
+          <div class = "first-row">
+      
+      <img src="~/img/gouache/potter.jpg" class="img-rounded" alt="img">
+      <img src="~/img/gouache/ron.jpg" class="img-rounded" alt="img">
+     
+      </div>
+      
+      </div>
+      
+    </div>
+    <hr>
+    
+
+</body>
+</html>

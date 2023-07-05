@@ -1,0 +1,85 @@
+﻿@using MyDrawingJourney.ViewModels.Home
+
+@model CommentViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MyDrawingJourney.styles.css" asp-append-version="true" />
+<style>
+  
+    #comment-box{
+        top:50%;
+        left:50%;
+       
+        
+        width:500px;
+        display:flex;
+        flex-direction: column;
+
+    }
+    #comment-box h2{
+        font-size:20px;
+        margin-bottom: 15px;
+    }
+    #comment-box input{
+        width:100%;
+        height:50px;
+        padding: 0 20px;
+        margin-bottom:15px;
+        -moz-border-radius:5px;
+        border: 1px solid #86b0b6;
+    }
+    #comment-box textarea{
+        width:100%;
+        height:150px;
+        padding:15px 20px;
+        margin-bottom:10px;
+        border-radius: 5px;
+        border: 1px solid #86b0b6;
+    }
+    #comment-box input:focus{
+        border:1px solid black;
+        outline:0;
+    }
+    #comment-box textarea:focus{
+        border:1px solid black;
+        outline:0;
+    }
+    #comment-box button{
+        border:solid;
+        padding:10px 30px;
+        background:#86b0b6;
+        border-radius:5px;
+        color: #fff;
+    }
+    #comment-box button:hover{
+        background-color: #718a8e;
+    }
+</style>
+</head>
+<body>
+@*  <div class="container-fluid" id = "comment-box">
+                <h2>Comments</h2>
+                <form action="">
+                    <input type="text" name = "full_name" placeholder = "Full Name..." />
+                    <input type="email" name = "email" placeholder = "Email Address..." />
+                    <textarea name = "comment" placeholder = "Type your comment..." ></textarea>
+                    <button type="submit">Submit Comment</button>
+                </form>
+            </div>*@
+<div class="container-fluid" id = "comment-box">
+    <form method = "post" asp-controller = "Blog" asp-action = "Comment">
+        <input asp-for = "PostId" type = "hidden"/>
+        <input asp-for = "MainCommentId" type = "hidden">
+        <input asp-for="Message"/>
+        <button type = "submit">Submit Comment</button>
+		</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Watercolor";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Watercolor</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+ p{
+       font-family: "Lucida Console", "Courier New", monospace;
+    }
+   h1, h3{
+       font-family:"Times New Roman", Times, serif;
+   }
+   img{
+       width:20%;
+   }
+  .sketch{
+      display:flex;
+     flex-direction:column;
+      justify-content:space-between;
+  }
+  .first-row{
+      display:flex;
+     flex-direction:row;
+     justify-content:space-around;
+     
+  }
+   .second-row{
+      display:flex;
+     flex-direction:row;
+      justify-content:space-around;
+      
+  }
+ 
+  #center-image{
+      width:50%;
+      align-items:center;
+  }
+  </style>
+</head>
+<body>
+
+    <div class="container-fluid text-center"> 
+      <h1>My watercolors</h1>
+      <p>
+          I find watercolor to be a challenging medium, but one I love nevertheless. Hopefully, I will grow to be a better watercolor artist. 
+          
+      </p>
+      <img id = "center-mage" src="~/img/watercolor/bookmarks.jpg" class="img-rounded" alt="First drawing">
+      <hr>
+      <h3>The watercolors I made</h3>
+      <p>Here are some of my favorite watercolor paintings. I have a long way to go until I am finally happy with my watercolor work, but I still love
+          sharing it with the world and on ocasion giving my drawings away as a gifts.
+      </p>
+      <hr>
+      
+      <div class = "sketch">
+          <div class = "first-row">
+      
+      <img src="~/img/watercolor/daisies.jpg" class="img-rounded" alt="img">
+      <img src="~/img/watercolor/field.jpg" class="img-rounded" alt="img">
+      <img src="~/img/watercolor/northpole.jpg" class="img-rounded" alt="img">
+      <img src="~/img/watercolor/coffeeshop.jpg" class="img-rounded" alt="img">
+      </div><hr>
+      <p>Some of my portraits in watecolor.<br> I found watercolor portraits to be a challange, which I embrace. 
+          With each portrait I find my improvement.Here's some models and my lovely brother.</p>
+      <div class = "second-row">
+       <img src="~/img/watercolor/mickey.jpg" class="img-rounded" alt="img">
+      <img src="~/img/watercolor/lawrence.jpg" class="img-rounded" alt="img">
+      <img src="~/img/watercolor/brother.jpg" class="img-rounded" alt="img">
+      <img src="~/img/watercolor/girlnbird.jpg" class="img-rounded" alt="img">
+      </div>
+        
+      </div>
+      
+    </div>
+    <hr>
+    
+
+</body>
+</html>

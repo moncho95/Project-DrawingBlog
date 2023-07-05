@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Gallery";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sketch</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+ div.gallery {
+  border: 1px solid #ccc;
+  margin-right:35px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+.cols{
+     display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    padding:5%;
+}
+.first-row {
+    
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.first-row img{
+    width:100%;
+    height:auto;
+}
+.second-row {
+    margin-top: 10%;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
+
+.second-row img{
+    width:100%;
+    height:auto;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ 
+  </style>
+</head>
+<body>
+
+    <h2>Image Gallery</h2>
+
+<h4>Some of my drawings with graphite pencils and watercolors</h4>
+
+
+
+<div class="cols">
+<div class="first-row">
+  <div class="gallery">
+    <a target="_blank" href="~/img/gallery/asianblack.jpg">
+      <img src="~/img/gallery/asianblack.jpg" alt="Forest" width="600" height="400">
+    </a>
+    <div class="desc">An asian girl in black background</div>
+  </div>
+
+  <div class="gallery">
+    <a target="_blank" href="~/img/gallery/blackportrait.jpg">
+      <img src="~/img/gallery/blackportrait.jpg" alt="Northern Lights" width="600" height="400">
+    </a>
+    <div class="desc">Another girl in black background</div>
+  </div>
+</div>
+
+<div class="second-row">
+  <div class="gallery">
+    <a target="_blank" href="~/img/gallery/manybookmarks.jpg">
+      <img src="~/img/gallery/manybookmarks.jpg" alt="Mountains" width="600" height="400">
+    </a>
+    <div class="desc">Bookmarks ideas</div>
+  </div>
+
+  <div class="gallery">
+    <a target="_blank" href="~/img/gallery/skywalker.jpg">
+      <img src="~/img/gallery/skywalker.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+    <div class="desc">A portrait of Skywalker</div>
+  </div>
+</div>
+</div>
+
+
+</body>
+</html>
