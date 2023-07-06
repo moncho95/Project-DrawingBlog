@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using MyDrawingJourney.Contracts;
 using MyDrawingJourney.Data;
+using MyDrawingJourney.Data.Models;
 using MyDrawingJourney.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +24,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => {
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddTransient<IEmailSender, SendMail>();
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
