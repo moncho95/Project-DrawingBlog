@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Programming</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+
+
+/* Create two columns/boxes that floats next to each other */
+#page-nav {
+  float: left;
+  width: 30%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+#page-nav {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+
+<section>
+  <h2>Programming journey</h2>
+</section>
+
+<section>
+  <nav id="page-nav">
+    <ul>
+      <li><a href="#section1">Fundamentals</a></li>
+      <li><a href="#section2">Advanced</a></li>
+      <li><a href="#section3">Web</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <h1>Brief story</h1>
+    
+    <p>Although I was a bit familiar with programming before enrolling to the Software University, almost everything I know about code comes namely from SoftUni.
+        I learned a lot over the past year and a half and I had the time of my life while doing it. Here I'd like to show some of my gained knowledge to the reader, divided 
+        in sections as is my path to becoming a Web developer. Databases and front-end are skipped, althouth I excelled in them too.
+    </p>
+  </article>
+</section>
+<section id="section1">
+    <article>
+    <h1>Fundamentals</h1>
+    <p></p>
+    </article>
+    </section>
+<section id="section2">
+    <article>
+    <h1>Advanced</h1>
+    <p></p>
+    </article>
+</section>
+<section id="section3">
+    <article>
+    <h1>Web</h1>
+    <p></p>
+    </article>
+</section>
+
+
+</body>
+</html>

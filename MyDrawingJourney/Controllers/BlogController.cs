@@ -119,22 +119,13 @@ namespace MyDrawingJourney.Controllers
             await _repo.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-        public IActionResult Programming()
-        {
-            return View();
-        }
-        public IActionResult Games()
-        {
-            return View();
-        }
+      
+       
         public IActionResult About()
         {
             return View();
         }
-        public IActionResult Contacts()
-        {
-            return View();
-        }
+       
 
     }
 }
