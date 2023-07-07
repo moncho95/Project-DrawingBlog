@@ -18,15 +18,38 @@
  p{
 	 font-family: "Lucida Console", "Courier New", monospace;
  }
+ .container {
+  position: relative;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 38px;
+}
+
+img { 
+  width: 100%;
+  height: auto;
+  opacity: 0.5;
+}
   </style>
 </head>
 <body>
-    @if (Model == null)
+     @if (Model == null)
     {
-        <h2 class = title>Choose a post from the Home page.</h2>
+<div class="container">
+  <img src="~/img/blogposts/blog.jpg" alt="Blog" width="1000" height="300">
+  <div class="center">Choose a post from the Home page.</div>
+  </div>
+   
     }
     else{
     <div class = "container">
+       <img src="~/img/blogposts/blog.jpg" alt="Blog" width="1000" height="300">
+  
 	<div class= "post no-shadow">
 		<img src = ""/>
 		<h2 class = title>@Model.Title</h2>

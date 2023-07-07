@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Programming";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Programming</title>
@@ -13,14 +16,28 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Style the header */
+.container {
+  position: relative;
+}
 
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 58px;
+}
+
+img { 
+  width: 100%;
+  height: auto;
+  opacity: 0.5;
+}
 
 /* Create two columns/boxes that floats next to each other */
 #page-nav {
   float: left;
-  width: 30%;
-  height: 300px; /* only for demonstration, should be removed */
+  width: 30%;  
   background: #ccc;
   padding: 20px;
 }
@@ -34,11 +51,17 @@ body {
 article {
   float: left;
   padding: 20px;
-  width: 70%;
+  width: 100%;
   background-color: #f1f1f1;
-  height: 300px; /* only for demonstration, should be removed */
+  
 }
-
+.intro{
+    float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: darkgrey;
+  
+}
 /* Clear floats after the columns */
 section::after {
   content: "";
@@ -47,16 +70,14 @@ section::after {
 }
 
 
-
-
 </style>
 </head>
 <body>
 
-
-<section>
-  <h2>Programming journey</h2>
-</section>
+<div class="container">
+  <img src="~/img/programming/computer.jpg" alt="Computer" width="1000" height="300">
+  <div class="center">Programming Journey</div>
+  </div>
 
 <section>
   <nav id="page-nav">
@@ -67,34 +88,72 @@ section::after {
     </ul>
   </nav>
   
-  <article>
+  <article class="intro">
     <h1>Brief story</h1>
     
     <p>Although I was a bit familiar with programming before enrolling to the Software University, almost everything I know about code comes namely from SoftUni.
         I learned a lot over the past year and a half and I had the time of my life while doing it. Here I'd like to show some of my gained knowledge to the reader, divided 
         in sections as is my path to becoming a Web developer. Databases and front-end are skipped, althouth I excelled in them too.
     </p>
+    <p>Enter your name for a greeting.</p>
+    <form method="post" action="Greetings">
+        First Name: <input type="text" name="fname"><br>
+        Last Name: <input type="text" name="lname"><br><br>
+        <input type="submit" value="Submit">
+    </form>
   </article>
 </section>
+<hr/>
 <section id="section1">
     <article>
     <h1>Fundamentals</h1>
-    <p></p>
+    <p>In the Fundamentals model last year we've learned about basic syntax, conditional loops,
+        data-types and variables, http-basics, arrays, html and css, methods, list, object and classes,
+        associative arrays, text processing and regular expressions.<br/>Here I'd like to show you some of my acquired knowledge :)
+
+    </p>
+    <p>Enter your name for a cup of coffee.</p>
+    <form method="post" action="Coffee">
+        Name: <input type="text" name="fname"><br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <br/>
+    <br/>
+    <p>
+        Beside learnining about nested loops and cycles, I learned also about text processing and regex.
+        Here I'd like to demontrate to you a cipher at work, namely Ceaser cipher. It is a type of substitution cipher in which each letter in the plaintext 
+        is replaced by a letter 
+        some fixed number of positions down the alphabet. For example,
+        with a left shift of 3, D would be replaced by A, E would become B, and so on.
+    </p>
+    <p>Enter your message to be encrypted.</p>
+    <form method="post" action="Cipher">
+        Message: <input type="text" name="mesg"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br />
+    <p>To implement Ceaser's cypher one must have knowledge of data types, loops, arrays and basic syntax, only part
+        of the things I learned during the Fundamental's module. However, it wasn't until I began the Advanced module
+        that my full curiosity about what I can do came into blossom. 
+    </p>
     </article>
     </section>
+    <hr/>
 <section id="section2">
     <article>
     <h1>Advanced</h1>
     <p></p>
     </article>
 </section>
+<hr/>
 <section id="section3">
     <article>
     <h1>Web</h1>
     <p></p>
     </article>
 </section>
-
+<hr/>
 
 </body>
 </html>
