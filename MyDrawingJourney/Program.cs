@@ -5,6 +5,8 @@ using MyDrawingJourney.Contracts;
 using MyDrawingJourney.Data;
 using MyDrawingJourney.Data.Models;
 using MyDrawingJourney.Services;
+using Microsoft.AspNetCore.SignalR;
+using MyDrawingJourney.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,13 +15,13 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString, b => b.MigrationsAssembly("MyDrawingJourney")));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
+builder.Services.AddSignalR();
 
 //builder.Services.AddDefaultIdentity<IdentityUser>()
 //    .AddRoles<IdentityRole>()
 //    .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => {
-    options.SignIn.RequireConfirmedAccount = true;
+    options.SignIn.RequireConfirmedAccount = false;
     })
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
@@ -40,7 +42,9 @@ else
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
+app.MapHub<TestHub>("/testhub");
 app.UseStaticFiles();
 
 app.UseRouting();

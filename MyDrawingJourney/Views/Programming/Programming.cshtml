@@ -143,7 +143,73 @@ section::after {
 <section id="section2">
     <article>
     <h1>Advanced</h1>
-    <p></p>
+    <p>In C# Advanced we've learned about stacks and queues, multidimentional arrays, sets and dictionaries, 
+        Functional programming, defining classes, implementing linked list, generics, iterators and comparators.
+
+    </p>
+    <br/>
+    <p>
+        Type a message to be reversed with <i>Stack</i> data structure.
+    </p>
+    <form method="post" action="Stack">
+        Message: <input type="text" name="str"><br>
+        <input type="submit" value="Submit">
+    </form>
+            @{
+                var message = ViewBag.Message;
+            }
+    <p>@message</p>
+    <br />
+    <br/>
+    <p>I also learned about <i>matrices</i> and <i>jagged arrays</i>.Jagged array is a array of arrays such that member arrays can be of different sizes. In other words, the length of each array index can differ.
+        Click on Jagged Array button to see an array with random numbers.
+    </p>
+    <form method="post" action="Arrays">       
+        <input type="submit" value="Jagged Array">
+    </form>
+    <br />
+    <br/>
+    <p>I also learned about <i>Sets and Dictionaries</i><br/>
+        Here's a small program that with the help of dictionary can tell how many times a word in the text: 
+        <br/><i>"Mary had a little lamb  <br/>
+
+        little Lamb, little Lamb,  <br/>
+
+        Mary had a Little lamb,  <br/>
+
+        whose fleece were white as snow."</i>
+        occures.
+    </p>
+
+     <form method="post" action="Dictionary">
+        Type a word to search for: <input type="text" name="str"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br/>
+    <br/>
+    <p>A LinkedList is a linear data structure which stores element in the non-contiguous location. The elements in a linked list are linked with each other using pointers. Or in other words, LinkedList consists of nodes 
+        where each node contains a data field and a reference(link) to the next node in the list.</p>
+    <br/>
+    <p>I created a linked-list, which stores some of the most popular bulgarian names for boys.
+        Try and guess a name.
+    </p>
+        <form method="post" action="PopularNames">
+        Type a popular bulgarian male name: <input type="text" name="str"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br/>
+    <br/>
+     <p>Generally, <i>functional programming</i> means using functions to the best effect for creating clean and maintainable software.
+<br/>Using functional programming I created a simple calculator. Check it out (valid operations: +,-,/,*)
+    </p>
+    <form method="post" action="FunctProgramming">
+        Type two numbers and an operation: <br/>
+        <input type="text" name="numone"><br>
+        <input type="text" name="op"><br>
+        <input type="text" name="numtwo"><br>
+        <input type="submit" value="Submit">
+    </form>
+
     </article>
 </section>
 <hr/>
