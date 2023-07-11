@@ -10,16 +10,17 @@
 }
 .tools-board{
     width:210px;
-    padding:15px 22 px 0;
+    padding:15px 22px 0;
 
 }
 .tools-board .row{
     margin-bottom:20px;
 
 }
-.row{
-    margin-left: 4px;
-    
+.row {
+    margin-left: 2px;   
+    width: fit-content;
+    height: fit-content;
 }
 .row .options{
     list-style-type:none;
