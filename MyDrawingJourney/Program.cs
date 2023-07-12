@@ -27,6 +27,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => {
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IEmailSender, SendMail>();
+builder.Services.AddScoped<IPostService, PostService>();
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using MyDrawingJourney.Data.Configuration;
 using MyDrawingJourney.Data.Models;
 using MyDrawingJourney.Data.Models.Comments;
 
@@ -15,9 +16,11 @@ namespace MyDrawingJourney.Data
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.ApplyConfiguration(new ForumPostEntityConfiguration());
             base.OnModelCreating(builder);
             SeedRoles(builder);
             builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
+            
         }
         private static void SeedRoles(ModelBuilder builder)
         {
@@ -39,6 +42,7 @@ namespace MyDrawingJourney.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<MainComment> MainComments { get; set; }
         public DbSet<SubComment> SubComments { get; set; }
+        public DbSet<ForumPost> ForumPosts { get; set; }
     }
 
     public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>
