@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+
 using static MyDrawingJourney.Common.EntityValidationConstants.ForumPost;
+
 namespace MyDrawingJourney.ViewModels.Home
 {
     public class ForumPostAddFormModel

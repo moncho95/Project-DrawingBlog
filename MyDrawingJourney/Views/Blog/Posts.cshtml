@@ -12,27 +12,32 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
- h2{
-	  font-family:"Times New Roman", Times, serif;
- }
- p{
+ 
+.post-body{
 	 font-family: "Lucida Console", "Courier New", monospace;
+     font-size: 30px;
+     margin-bottom: 50px;
  }
  .container {
   position: relative;
 }
 
 .center {
+    
+     font-family:"Times New Roman", Times, serif;
+      font-size: 50px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 38px;
+  
 }
 
 img { 
+  margin-bottom: 50px;
+  
   width: 100%;
-  height: auto;
+  height: 50%;
   opacity: 0.5;
 }
   </style>
@@ -48,11 +53,9 @@ img {
     }
     else{
     <div class = "container">
-       <img src="~/img/blogposts/blog.jpg" alt="Blog" width="1000" height="300">
-  
-	<div class= "post no-shadow">
-		<img src = ""/>
-		<h2 class = title>@Model.Title</h2>
+       <img src="~/img/blogposts/blog.jpg" alt="Blog" width="1000" height="300">  
+		
+		<h2 class="center">@Model.Title</h2>
 	</div>
 
 	<div class= "post-body">
@@ -84,7 +87,7 @@ img {
                 </div>
             }
         </div>
-</div>
+
 }
 </body>
 </html>

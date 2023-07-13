@@ -45,11 +45,14 @@ else
 
 
 app.UseHttpsRedirection();
-app.MapHub<TestHub>("/testhub");
+app.MapHub<ChatHub>("/chat");
 app.UseStaticFiles();
 
 app.UseRouting();
-
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapHub<ChatHub>("/chat");
+//});
 app.UseAuthentication();
 app.UseAuthorization();
 

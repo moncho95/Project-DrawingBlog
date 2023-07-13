@@ -26,6 +26,30 @@ namespace MyDrawingJourney.Services
             await this.dbContext.SaveChangesAsync();
         }
 
+        public async Task EditByIdAsync(string id, ForumPostAddFormModel postEditedModel)
+        {
+            ForumPost postToEdit = await this.dbContext.ForumPosts.FirstAsync(fp => fp.Id.ToString().ToLower() == id.ToLower());
+
+            postToEdit.Title = postEditedModel.Title;
+            postToEdit.Content = postEditedModel.Content;
+
+            await this.dbContext.SaveChangesAsync();
+
+        }
+
+        public async Task<ForumPostAddFormModel> GetForEditByIdAsync(string id)
+        {
+            ForumPost formModel = await this.dbContext
+                .ForumPosts
+                .FirstAsync(fp => fp.Id.ToString() == id);
+            
+            return new ForumPostAddFormModel()
+            {
+                Title = formModel.Title,
+                Content = formModel.Content
+            };
+        }
+
         public async Task<IEnumerable<ForumPostListViewModel>> ListAllAsync()
         {
             IEnumerable<ForumPostListViewModel> allPosts =await dbContext.ForumPosts
@@ -37,6 +61,15 @@ namespace MyDrawingJourney.Services
                  .ToArrayAsync();
             return allPosts;
 
+        }
+        public async Task DeleteByIdAsync(string id)
+        {
+            ForumPost postToDelete = await this.dbContext
+                .ForumPosts
+                .FirstAsync(p => p.Id.ToString() == id);
+
+            this.dbContext.ForumPosts.Remove(postToDelete);
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

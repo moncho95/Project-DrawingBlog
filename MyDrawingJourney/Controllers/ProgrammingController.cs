@@ -8,13 +8,7 @@ namespace MyDrawingJourney.Controllers
 {
     public class ProgrammingController : Controller
     {
-        IHubContext<TestHub> _hubContext;
-
-        public ProgrammingController(IHubContext<TestHub> hubContext)
-        {
-            _hubContext = hubContext;
-            
-        }
+       
 
         public IActionResult Programming()
         {
