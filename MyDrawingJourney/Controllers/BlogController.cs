@@ -127,7 +127,6 @@ namespace MyDrawingJourney.Controllers
         {
             return View();
         }
-       
 
     }
 }
