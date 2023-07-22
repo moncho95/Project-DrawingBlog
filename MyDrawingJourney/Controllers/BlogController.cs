@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyDrawingJourney.Contracts;
 using MyDrawingJourney.Data.Models;
 using MyDrawingJourney.Data.Models.Comments;
@@ -80,6 +81,7 @@ namespace MyDrawingJourney.Controllers
             return View(post);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Edit(int? id)
         {
            if(id == null)

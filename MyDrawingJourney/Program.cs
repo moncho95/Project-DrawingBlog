@@ -17,12 +17,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddSignalR();
 
-//builder.Services.AddDefaultIdentity<IdentityUser>()
-//    .AddRoles<IdentityRole>()
-//    .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => {
-    options.SignIn.RequireConfirmedAccount = false;
+   
+    options.Password.RequireDigit = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+
     })
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IRepository, Repository>();
@@ -43,7 +45,36 @@ else
     app.UseHsts();
 }
 
+//adding roles
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var roles = new[] { "Admin", "Manager", "User" };
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+            await roleManager.CreateAsync(new IdentityRole(role));
+        
+    }
+}
+// Admin role
+using (var scope = app.Services.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
+    string email = "admin@localhost.email";
+    string password = "adminpass";
+
+    if (await userManager.FindByEmailAsync(email) == null)
+    {
+        var user = new IdentityUser();
+        user.UserName = email;
+        user.Email = email;
+        await userManager.CreateAsync(user, password);
+        await userManager.AddToRoleAsync(user, "Admin");
+    }
+
+}
 app.UseHttpsRedirection();
 app.MapHub<ChatHub>("/chat");
 app.UseStaticFiles();
