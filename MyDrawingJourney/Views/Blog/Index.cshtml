@@ -46,6 +46,7 @@
    .posts{
        font-size: 50px;
        font-family: "Lucida Console", "Courier New", monospace;
+       margin-bottom: 50px;
    }
   </style>
 </head>
@@ -96,16 +97,20 @@
     </div>
     <hr>
     <div>
+        <h1>My posts: </h1>
         <ul class="posts">
             @if (Model != null)
             {
                 @foreach (var post in Model)
                 {
-                    <li>
-                        <a asp-controller = "Blog" asp-action="Posts" asp-route-id = "@post.Id">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a asp-controller = "Blog" asp-action="Posts" asp-route-id = "@post.Id">
                             @post.Title
                         </a>
                         -
+                        
                         <a asp-controller = "Blog" asp-action="Edit" asp-route-id = "@post.Id">
                             Edit
                         </a>
@@ -113,11 +118,23 @@
                         <a asp-controller = "Blog" asp-action="Remove" asp-route-id = "@post.Id">
                             Remove
                         </a>
-                    </li>
+                        
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller = "Blog" asp-action="Posts" asp-route-id = "@post.Id">
+                            @post.Title
+                        </a>
+                        </li>
+                        
+                    }
                 }
             }
         </ul>
     </div>
+    <h1>Your turn to draw</h1>
     <partial name="_PaintApp" />
 </body>
 </html>
