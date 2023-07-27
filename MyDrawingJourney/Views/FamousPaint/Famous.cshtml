@@ -1,21 +1,22 @@
 ﻿@using System.Text.Encodings.Web;
 @inject JavaScriptEncoder encoder;
 @{
-    var untrestedInput = "<\"script\">";
+    //var untrestedInput = "<\"script\">";
 }
 @model IEnumerable<FamousPaintingViewModel>
 
 @{
     ViewBag.Title = "Famous Paintings";
 }
-
+<html>
+    <body>
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 
 <form method="post" action="Search">
     <div class="row">
     <div class="form-group col-md-3 d-flex justify-content-between">
-         <input type="text" name="mesg" placeholder="Search..."><br>
+         <input type="text" pattern="[A-Za-z ]+" name="mesg" placeholder="Search..."><br>
         <input type="submit" class="btn btn-primary" value="Search">
         </div>
         </div>
@@ -75,4 +76,6 @@ else
     <p class="text-center">No paintings yet!</p>
 }
 
-<script> document.write("@encoder.Encode(untrestedInput)")</script>
+
+</body>
+</html>

@@ -311,7 +311,27 @@ namespace MyDrawingJourney.Controllers
             return Content(result.ToString());
 
             }
-        
-       
+
+        public IActionResult ActionResult(int op)
+        {
+            switch (op)
+            {
+                case 0:
+                    return StatusCode(404);
+                case 1:
+                    return Ok();
+                case 2:
+                    return BadRequest();
+                case 3:
+                    return NotFound();
+                case 4:
+                    return RedirectToAction("Home", "Blog");
+                case 5:
+                    return Content("This is Content Action Result!");
+                default:
+                    return View();
+            }
+           
+        }
     }
 }

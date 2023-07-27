@@ -1,7 +1,7 @@
 ﻿@using System.Text.Encodings.Web;
 @inject JavaScriptEncoder encoder;
 @{
-    var untrestedInput = "<\"script\">";
+    //var untrestedInput = "<\"script\">";
 }
 @{
     ViewData["Title"] = "Programming";
@@ -102,8 +102,8 @@ section::after {
     </p>
     <p>Enter your name for a greeting.</p>
     <form method="post" action="Greetings">
-        First Name: <input type="text" name="fname"><br>
-        Last Name: <input type="text" name="lname"><br><br>
+        First Name: <input type="text"  pattern="[A-Z][a-z]+" name="fname"><br>
+        Last Name: <input type="text" pattern="[A-Z][a-z]+" name="lname"><br><br>
         <input type="submit" value="Submit">
     </form>
   </article>
@@ -119,7 +119,7 @@ section::after {
     </p>
     <p>Enter your name for a cup of coffee.</p>
     <form method="post" action="Coffee">
-        Name: <input type="text" name="fname"><br>
+        Name: <input type="text" pattern="[A-Za-z]+" name="fname"><br>
         <input type="submit" value="Submit">
     </form>
     
@@ -134,7 +134,7 @@ section::after {
     </p>
     <p>Enter your message to be encrypted.</p>
     <form method="post" action="Cipher">
-        Message: <input type="text" name="mesg"><br>
+        Message: <input type="text" pattern="[A-Za-z]+" name="mesg"><br>
         <input type="submit" value="Submit">
     </form>
     <br />
@@ -157,7 +157,7 @@ section::after {
         Type a message to be reversed with <i>Stack</i> data structure.
     </p>
     <form method="post" action="Stack">
-        Message: <input type="text" name="str"><br>
+        Message: <input type="text" pattern="[A-Za-z]+"  name="str"><br>
         <input type="submit" value="Submit">
     </form>
             @{
@@ -187,7 +187,7 @@ section::after {
     </p>
 
      <form method="post" action="Dictionary">
-        Type a word to search for: <input type="text" name="str"><br>
+        Type a word to search for: <input type="text" pattern="[A-Za-z]+" name="str"><br>
         <input type="submit" value="Submit">
     </form>
     <br/>
@@ -253,11 +253,37 @@ The main advantages and goals of OOP are to make complex software faster to deve
     State Managment and Asynchronous Programming, ASP.NET Databases and Identity, We had a Forum App Workshop and
     a TaskBoard App Workshop.
     </p>
+    <p>
+        I learned about the MVC pattern. How it assures code reusabilty and separation of concerns. The Controllers that render the View,
+        updates the model, and handles user actions. The Model, which holds user data. The View that displays the UI, based on the model data.
+
+    </p>
+    <p>I learned about the different Action Results</p>
+    <p>Choose an Action Result to get different result...</p>
+     <form method="post" action="ActionResult">
+        <div class="row">
+        <div class="form-group col-md-3 d-flex justify-content-between">
+ 
+                <label ></label>
+              <select name = "op" class="form-control">
+                <option value="0">StatusCode</option>
+                <option value="1">Ok</option>
+                <option value="2">BadRequest</option>
+                <option value="3">NotFound</option>
+                <option value="4">Redirect to Home</option>
+                <option value="5">Content</option>
+                
+                </select>
+                <input type="submit" class="btn btn-primary" value="Choose">
+        </div>
+    </div>
+    </form>
     </article>
 </section>
 <hr/>
 
+
+
 </body>
 </html>
 
-<script> document.write("@encoder.Encode(untrestedInput)")</script>
