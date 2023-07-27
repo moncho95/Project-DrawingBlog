@@ -1,0 +1,37 @@
+﻿@using MyDrawingJourney.ViewModels.Home
+@model FamousPaintingAddViewModel
+
+@{
+    ViewBag.Title = "Add Painting";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <form method="post">
+        <div class="form-group">
+            <div class="mb-3">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" placeholder="Write your name here...">
+                <span asp-validation-for="@Model.Name" class="small text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Description"></label>
+                <input asp-for="Description" class="form-control" placeholder="Write your post here...">
+                <span asp-validation-for="@Model.Description" class="small text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ImageUrl"></label>
+                <input asp-for="ImageUrl" class="form-control" placeholder="Write your imageurl here...">
+                <span asp-validation-for="@Model.ImageUrl" class="small text-danger"></span>
+            </div>
+        </div>
+        <input class="btn btn-primary mt-3" type="submit" value="Create" />
+    </form>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial"/>
+}

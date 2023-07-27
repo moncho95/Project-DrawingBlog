@@ -29,7 +29,7 @@ namespace MyDrawingJourney.Areas.Identity.Pages.Account
             _logger.LogInformation("User logged out.");
             if (returnUrl != null)
             {
-                return RedirectToAction("Index", "Blog");
+                return RedirectToAction("Home", "Blog");
             }
             else
             {

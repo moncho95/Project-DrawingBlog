@@ -18,7 +18,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddSignalR();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => {
-   
+    options.SignIn.RequireConfirmedAccount = false;
     options.Password.RequireDigit = false;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;
@@ -30,6 +30,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IEmailSender, SendMail>();
 builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddTransient<IPaintService, PaintService>();
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -44,6 +45,8 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+
 
 //adding roles
 using (var scope = app.Services.CreateScope())
@@ -90,7 +93,7 @@ app.UseAuthorization();
 //app.MapDefaultControllerRoute();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Blog}/{action=Index}");
+    pattern: "{controller=Blog}/{action=Home}");
 app.MapRazorPages();
 
 app.Run();

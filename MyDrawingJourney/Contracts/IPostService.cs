@@ -1,4 +1,5 @@
-﻿using MyDrawingJourney.ViewModels.Home;
+﻿
+using MyDrawingJourney.ViewModels.Home;
 
 namespace MyDrawingJourney.Contracts
 {
@@ -11,5 +12,6 @@ namespace MyDrawingJourney.Contracts
         Task<ForumPostAddFormModel> GetForEditByIdAsync(string id);
         Task EditByIdAsync(string id, ForumPostAddFormModel postEditedModel);
         Task DeleteByIdAsync(string id);
+        
     }
 }

@@ -49,7 +49,7 @@ namespace MyDrawingJourney.Controllers
 
             return RedirectToAction("Posts", new { id = vm.PostId });
         }
-        public IActionResult Index()
+        public IActionResult Home()
         {
             var posts = _repo.GetAllPosts();
             return View(posts);
@@ -107,7 +107,7 @@ namespace MyDrawingJourney.Controllers
             }
             if (await _repo.SaveChangesAsync())
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Home");
             }
             else
             {
@@ -119,7 +119,7 @@ namespace MyDrawingJourney.Controllers
         {
             _repo.RemovePost(id);
             await _repo.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Home");
         }
       
        

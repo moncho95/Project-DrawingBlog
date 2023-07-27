@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyDrawingJourney.Data;
 
@@ -11,9 +12,10 @@ using MyDrawingJourney.Data;
 namespace MyDrawingJourney.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230725161029_CreateAndSeed")]
+    partial class CreateAndSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,6 +49,22 @@ namespace MyDrawingJourney.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "78af6cd3-0255-4961-8e46-fb03e7bc553c",
+                            ConcurrencyStamp = "1",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "f82ced1d-5f58-444d-b6be-123d80689280",
+                            ConcurrencyStamp = "2",
+                            Name = "User",
+                            NormalizedName = "User"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -306,23 +324,23 @@ namespace MyDrawingJourney.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("25c0217e-1b90-4626-ac2b-63ce3e6f4b33"),
+                            Id = new Guid("6a4120ed-dab9-4f6e-9b22-7f5ca42ddd51"),
                             Content = "Drawing with watercolor has its challengeses, but there is nothing more pleasent...",
-                            CreatedOn = new DateTime(2023, 7, 25, 23, 53, 50, 336, DateTimeKind.Local).AddTicks(504),
+                            CreatedOn = new DateTime(2023, 7, 25, 19, 10, 29, 48, DateTimeKind.Local).AddTicks(5667),
                             Title = "Drawing with watercolor"
                         },
                         new
                         {
-                            Id = new Guid("ec00827c-59cc-4e83-90b9-e1223df41754"),
+                            Id = new Guid("86fd6e5c-40ce-481a-bd41-c5196ef30a33"),
                             Content = "Drawing with gouache is best suited for illustration work...",
-                            CreatedOn = new DateTime(2023, 7, 25, 23, 53, 50, 336, DateTimeKind.Local).AddTicks(677),
+                            CreatedOn = new DateTime(2023, 7, 25, 19, 10, 29, 48, DateTimeKind.Local).AddTicks(5903),
                             Title = "Drawing with gouache"
                         },
                         new
                         {
-                            Id = new Guid("6a44422b-a3b8-45dd-94fc-68c573559f8a"),
+                            Id = new Guid("b3fec0e6-f5b7-4f5f-b288-6b1ded9bd369"),
                             Content = "Drawing with oil is so difficult...",
-                            CreatedOn = new DateTime(2023, 7, 25, 23, 53, 50, 336, DateTimeKind.Local).AddTicks(698),
+                            CreatedOn = new DateTime(2023, 7, 25, 19, 10, 29, 48, DateTimeKind.Local).AddTicks(5922),
                             Title = "Drawing with oil"
                         });
                 });
@@ -335,8 +353,8 @@ namespace MyDrawingJourney.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(400)
-                        .HasColumnType("nvarchar(400)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
@@ -345,8 +363,8 @@ namespace MyDrawingJourney.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(70)
-                        .HasColumnType("nvarchar(70)");
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
 
                     b.HasKey("Id");
 

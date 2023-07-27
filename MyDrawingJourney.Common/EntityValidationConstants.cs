@@ -18,5 +18,17 @@ namespace MyDrawingJourney.Common
 
 
         }
+
+        public static class Painting
+        {
+            public const int NameMinLength = 5;
+            public const int NameMaxLength = 70;
+
+            public const int DescriptionMinLength = 10;
+            public const int DescriptionLength = 400; 
+            
+            public const int UrlLength = 2048;           
+
+        }
     }
 }
