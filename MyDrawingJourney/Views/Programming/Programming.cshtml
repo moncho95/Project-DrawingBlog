@@ -1,4 +1,9 @@
-﻿@{
+﻿@using System.Text.Encodings.Web;
+@inject JavaScriptEncoder encoder;
+@{
+    var untrestedInput = "<\"script\">";
+}
+@{
     ViewData["Title"] = "Programming";
 }
 <!DOCTYPE html>
@@ -254,3 +259,5 @@ The main advantages and goals of OOP are to make complex software faster to deve
 
 </body>
 </html>
+
+<script> document.write("@encoder.Encode(untrestedInput)")</script>

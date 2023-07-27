@@ -1,4 +1,8 @@
-﻿
+﻿@using System.Text.Encodings.Web;
+@inject JavaScriptEncoder encoder;
+@{
+    var untrestedInput = "<\"script\">";
+}
 @model IEnumerable<FamousPaintingViewModel>
 
 @{
@@ -70,3 +74,5 @@ else
 {
     <p class="text-center">No paintings yet!</p>
 }
+
+<script> document.write("@encoder.Encode(untrestedInput)")</script>
