@@ -31,6 +31,7 @@ builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IEmailSender, SendMail>();
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddTransient<IPaintService, PaintService>();
+builder.Services.AddTransient<ISongService, SongService>();
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.

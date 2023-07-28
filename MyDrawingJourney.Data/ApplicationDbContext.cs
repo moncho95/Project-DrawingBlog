@@ -6,6 +6,7 @@ using MyDrawingJourney.Data.Configuration;
 using MyDrawingJourney.Data.Models;
 using MyDrawingJourney.Data.Models.Comments;
 using MyDrawingJourney.Data.Models.Paintings;
+using MyDrawingJourney.Data.Models.Songs;
 
 namespace MyDrawingJourney.Data
 {
@@ -45,6 +46,7 @@ namespace MyDrawingJourney.Data
         public DbSet<SubComment> SubComments { get; set; }
         public DbSet<ForumPost> ForumPosts { get; set; }
         public DbSet<Painting> Paintings { get; set; }
+        public DbSet<Song> Songs { get; set; }
     }
 
     public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>

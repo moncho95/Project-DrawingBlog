@@ -1,0 +1,85 @@
+﻿@model IEnumerable<MusicAddViewModel>
+@{
+    ViewData["Title"] = "Music page";
+    var likes = 1;
+
+}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="~/css/StyleSongs.css">
+    <title>Music Site</title>
+   
+</head>
+
+<body>
+
+    <section id="welcome" class="background-image">
+        <div class="home-container">
+            <div class="info">
+                <h1>@ViewData["Title"]</h1>
+            </div>
+        </div>
+    </section>
+
+    <div id="wrapper">
+
+        <section id="append-song">
+            <form asp-controller="Music" asp-action="AddSong">
+                                
+                <input id = "add-btn" type="submit" value="Add Song" />
+                               
+            </form>
+        </section>
+
+       
+
+        <section id="saved-hits">
+            <div class="saved-container">
+                <h1>Saved songs</h1>              
+@if (Model != null)
+{
+    <div class="row">
+        @foreach (var song in Model)
+        {
+            <div class="col-sm-6">
+                <div class="card ">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">@song.Name</h4>                       
+                        <p class="card-text">@song.Genre</p>
+                        <p class="card-text">@song.Author</p>
+                        
+                    </div>
+                    <button id="like">Like</button>
+                    
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p class="text-center">No songs yet!</p>
+}
+
+
+            </div>
+        </section>
+
+        <section id="total-likes">
+            <div class="likes">
+                <p>Total Likes: @likes</p>
+                <img src="~/img/music/like-btn.jpg" alt="image-like">
+            </div>
+        </section>
+
+    </div>
+
+    
+    @*<script src="app.js"></script>*@
+</body>
+
+</html>

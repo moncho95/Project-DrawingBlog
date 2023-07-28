@@ -1,0 +1,44 @@
+﻿
+@model MusicAddViewModel
+
+@{
+    ViewBag.Title = "Add Song";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <form method="post">
+        <div class="form-group">
+            <div class="mb-3">
+                <label asp-for="Genre"></label>
+                <input asp-for="Genre" class="form-control" placeholder="Write genre here...">
+                @*<span asp-validation-for="@Model.Title" class="small text-danger"></span>*@
+            </div>
+            <div class="mb-3">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" placeholder="Write name here...">
+                
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Author"></label>
+                <input asp-for="Author" class="form-control" placeholder="Write author here...">
+                
+            </div>
+            <div class="mb-3">
+                <label asp-for="CreatedOn"></label>
+                <input asp-for="CreatedOn" class="form-control" placeholder="Write date here...">
+                
+            </div>
+
+        </div>
+        <input class="btn btn-primary mt-3" type="submit" value="Create" />
+    </form>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial"/>
+}

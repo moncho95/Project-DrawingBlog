@@ -30,5 +30,19 @@ namespace MyDrawingJourney.Common
             public const int UrlLength = 2048;           
 
         }
+
+        public static class Song
+        {
+            public const int GenreMinLength = 3;
+            public const int GenreMaxLength = 30;
+
+            public const int NameMinLength = 3;
+            public const int NameMaxLength = 30;
+            
+            public const int AuthorMinLength = 3;
+            public const int AuthorMaxLength = 30;
+
+            public const string RegEx = "[A -Za-z ]+";
+        }
     }
 }

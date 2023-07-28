@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="~/MyDrawingJourney.styles.css" asp-append-version="true" />
 <style>
     footer{
-        
+      position: fixed;  
+      left: 0;
+      bottom: 0;
       background-color: #555;
       color: white;
       padding: 15px;
@@ -77,6 +79,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Game" asp-action="Games">My Games</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Music" asp-action="Music">Music</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Forum" asp-action="All">Forum</a>
