@@ -41,5 +41,15 @@ namespace MyDrawingJourney.Services
             await this.dbContext.Songs.AddAsync(newSong);
             await this.dbContext.SaveChangesAsync();
         }
+
+        public async Task DeleteByIdAsync(string id)
+        {
+            Song songToDelete = await this.dbContext
+                .Songs
+                .FirstAsync(p => p.Id.ToString() == id);
+
+            this.dbContext.Songs.Remove(songToDelete);
+            await this.dbContext.SaveChangesAsync();
+        }
     }
 }

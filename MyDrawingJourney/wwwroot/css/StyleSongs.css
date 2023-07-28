@@ -24,7 +24,7 @@ body {
 #total-likes {
     display: inline;
     /*max-width: 22%;*/
-    flex-basis: 10%;
+    flex-basis: 20%;
     margin-left: 1em;
 }
 
@@ -125,7 +125,6 @@ label {
     color: #1A2250;
 }
 #add-btn,
-#delete-btn
 button {
     background-image: linear-gradient(to right, #89CAFF, #6589FF);
     display: block;
@@ -135,8 +134,14 @@ button {
     box-shadow: 0 5px 14px #89caff94;
     transition: box-shadow .3s ease-in-out;
 }
-#delete-btn {
-    background-image: linear-gradient(to right, red, yellow);
+.delete-btn {
+    background-image: linear-gradient(to right, yellow, red);
+    display: block;
+    font-size: 1.0rem;
+    font-weight: bold;
+    color: #1A2250;
+    box-shadow: 0 5px 14px #89caff94;
+    transition: box-shadow .3s ease-in-out;
 }
     button:hover {
         background-image: linear-gradient(to right, #80bef0, #5d7fee);

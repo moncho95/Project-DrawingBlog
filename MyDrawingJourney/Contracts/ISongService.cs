@@ -6,5 +6,6 @@ namespace MyDrawingJourney.Contracts
     {
         Task<IEnumerable<MusicAddViewModel>> ListAllAsync();
         Task AddPostAsync(MusicAddViewModel postViewModel);
+        Task DeleteByIdAsync(string id);
     }
 }

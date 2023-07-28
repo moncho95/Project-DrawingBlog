@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyDrawingJourney.Contracts;
 using MyDrawingJourney.ViewModels.Home;
 
@@ -43,6 +44,21 @@ namespace MyDrawingJourney.Controllers
             return RedirectToAction("Music");
         }
 
+        [HttpPost]
        
+        public async Task<IActionResult> DeleteSong(string id)
+        {
+            try
+            {
+                await this.songService.DeleteByIdAsync(id);
+                return RedirectToAction("Music", "Music");
+            }
+            catch (Exception)
+            {
+
+            }
+            return RedirectToAction("Home", "Blog");
+
+        }
     }
 }

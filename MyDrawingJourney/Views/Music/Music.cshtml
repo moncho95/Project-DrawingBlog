@@ -1,15 +1,14 @@
 ﻿@model IEnumerable<MusicAddViewModel>
 @{
     ViewData["Title"] = "Music page";
-    var likes = 1;
+    
 
 }
 
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       
     <link rel="stylesheet" href="~/css/StyleSongs.css">
     <title>Music Site</title>
    
@@ -53,7 +52,13 @@
                         <p class="card-text">@song.Author</p>
                         
                     </div>
-                    <button id="like">Like</button>
+                    <form asp-controller="Music" asp-action="DeleteSong" asp-route-id="@song.Id" >
+                        <div class="d-grid gap-2">
+                            <input type="submit" class="delete-btn" value="Delete" />
+                        </div>
+                    </form>
+                    
+                    <button id="like-btn">Like</button>
                     
                 </div>
             </div>
@@ -71,7 +76,7 @@ else
 
         <section id="total-likes">
             <div class="likes">
-                <p>Total Likes: @likes</p>
+                <p id="like">Total Likes: 0</p>
                 <img src="~/img/music/like-btn.jpg" alt="image-like">
             </div>
         </section>
@@ -79,7 +84,7 @@ else
     </div>
 
     
-    @*<script src="app.js"></script>*@
+    <script src="~/js/app.js"></script>
 </body>
 
 </html>
