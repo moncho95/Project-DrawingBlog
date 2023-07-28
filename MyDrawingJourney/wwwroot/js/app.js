@@ -11,5 +11,7 @@ function solve() {
     }
     function onLike() {
         likeP.textContent = `Total Likes: ${++likedSong}`
+        let el = event.target;
+        el.disabled = true;
     }
 }
