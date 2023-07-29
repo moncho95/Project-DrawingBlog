@@ -15,7 +15,7 @@ namespace MyDrawingJourney.Controllers
         }
         public async Task<IActionResult> Music()
         {
-            IEnumerable<MusicAddViewModel> allSongs =
+            IEnumerable<MusicViewModel> allSongs =
                await this.songService.ListAllAsync();
 
             return View(allSongs);
@@ -44,8 +44,7 @@ namespace MyDrawingJourney.Controllers
             return RedirectToAction("Music");
         }
 
-        [HttpPost]
-       
+        [HttpPost]       
         public async Task<IActionResult> DeleteSong(string id)
         {
             try

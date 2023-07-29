@@ -15,11 +15,12 @@ namespace MyDrawingJourney.Services
             this.dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<MusicAddViewModel>> ListAllAsync()
+        public async Task<IEnumerable<MusicViewModel>> ListAllAsync()
         {
-            IEnumerable<MusicAddViewModel> allSongs = await dbContext.Songs
-                 .Select(fp => new MusicAddViewModel()
+            IEnumerable<MusicViewModel> allSongs = await dbContext.Songs
+                 .Select(fp => new MusicViewModel()
                  {
+                     Id = fp.Id.ToString(),
                      Genre = fp.Genre,
                      Name = fp.Name,
                      Author = fp.Author,
@@ -33,6 +34,7 @@ namespace MyDrawingJourney.Services
         {
             Song newSong = new Song()
             {
+
                 Genre = songViewModel.Genre,
                 Name = songViewModel.Name,
                 Author = songViewModel.Author,
@@ -44,7 +46,7 @@ namespace MyDrawingJourney.Services
 
         public async Task DeleteByIdAsync(string id)
         {
-            Song songToDelete = await this.dbContext
+            Song songToDelete = await dbContext
                 .Songs
                 .FirstAsync(p => p.Id.ToString() == id);
 

@@ -9,12 +9,6 @@ namespace MyDrawingJourney.ViewModels.Home
 {
     public class MusicAddViewModel
     {
-        public MusicAddViewModel()
-        {
-            this.Id = Guid.NewGuid();
-        }
-        [Key]
-        public Guid Id { get; set; } 
         [Required]
         [StringLength(GenreMaxLength, MinimumLength = GenreMinLength)]
         [RegularExpression(RegEx)]

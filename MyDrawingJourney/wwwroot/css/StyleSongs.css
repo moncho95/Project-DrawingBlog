@@ -125,7 +125,7 @@ label {
     color: #1A2250;
 }
 #add-btn,
-button {
+#like-btn {
     background-image: linear-gradient(to right, #89CAFF, #6589FF);
     display: block;
     font-size: 1.0rem;
@@ -198,8 +198,8 @@ span {
         height: 20px;
     }
 
-.like-btn:disabled {
-    background-image: linear-gradient(to right, #b6bfc5, #b6b9c2);
+#like-btn:disabled {
+    background-image: linear-gradient(to right, grey, black);
 }
 
 .saved-container {
