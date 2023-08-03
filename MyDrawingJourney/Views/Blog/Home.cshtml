@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Post>
+﻿@using MyDrawingJourney.Infrastructure
+@model IEnumerable<Post>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -103,7 +104,7 @@
             {
                 @foreach (var post in Model)
                 {
-                    @if (User.IsInRole("Admin"))
+                    @if (User.IsAdmin())
                     {
                         <li>
                             <a asp-controller = "Blog" asp-action="Posts" asp-route-id = "@post.Id">

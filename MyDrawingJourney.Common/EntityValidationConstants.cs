@@ -44,5 +44,14 @@ namespace MyDrawingJourney.Common
 
             public const string RegEx = "[A -Za-z ]+";
         }
+
+        public static class AplicationUser
+        {
+            public const int FirstNameMinLength =1 ;
+            public const int FirstNameMaxLength =12 ;
+            public const int LasNameMinLength =3 ;
+            public const int LasNameMaxLength =30 ;
+
+        }
     }
 }

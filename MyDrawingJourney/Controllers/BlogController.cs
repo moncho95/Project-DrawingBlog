@@ -81,7 +81,7 @@ namespace MyDrawingJourney.Controllers
             return View(post);
         }
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Administrator")]
         public IActionResult Edit(int? id)
         {
            if(id == null)

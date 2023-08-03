@@ -8,10 +8,15 @@ using MyDrawingJourney.Data.Models.Comments;
 using MyDrawingJourney.Data.Models.Paintings;
 using MyDrawingJourney.Data.Models.Songs;
 
+
 namespace MyDrawingJourney.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public const string AdminRoleName = "Administrator";
+        public const string AdminEmail = "admin@mail.com";
+        private ApplicationUser AdminUser { get; set; }
+        private ApplicationUser GuestUser { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -19,28 +24,43 @@ namespace MyDrawingJourney.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new ForumPostEntityConfiguration());
+            builder.ApplyConfiguration(new SongEntityConfiguration());
+            builder.ApplyConfiguration(new PaintingEntityConfiguration());
+            //builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
+
             base.OnModelCreating(builder);
-            //SeedRoles(builder);
-            builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
+            SeedUsers();
+            builder.Entity<ApplicationUser>()
+               .HasData(AdminUser, GuestUser);
             
         }
-        //private static void SeedRoles(ModelBuilder builder)
-        //{
-        //    builder.Entity<IdentityRole>().HasData(
-        //        new IdentityRole()
-        //        {
-        //            Name = "Admin",
-        //            ConcurrencyStamp = "1",
-        //            NormalizedName = "Admin"
-        //        },
-        //        new IdentityRole()
-        //        {
-        //            Name = "User",
-        //            ConcurrencyStamp = "2",
-        //            NormalizedName = "User"
-        //        }
-        //        );
-        //}
+        private void SeedUsers()
+        {
+            var hasher = new PasswordHasher<ApplicationUser>();
+            AdminUser = new ApplicationUser()
+            {
+                Id = "bcb4f072-ecca-43c9-ab26-c060c6f364e4",
+                Email = AdminEmail,
+                NormalizedEmail = AdminEmail,
+                UserName = AdminEmail,
+                NormalizedUserName = AdminEmail,
+                FirstName = "Great",
+                LastName = "Admin"
+            };
+            AdminUser.PasswordHash = hasher.HashPassword(AdminUser, "adminpass");
+
+            GuestUser = new ApplicationUser()
+            {
+                Id = "bcb4f072-ecca-43c9-ab26-c060c6f364e5",
+                Email = "guest@mail.com",
+                NormalizedEmail = "guest@mail.com",
+                UserName = "guest@mail.com",
+                NormalizedUserName = "guest@mail.com",
+                FirstName = "Teodor",
+                LastName = "Lesly"
+            };
+            GuestUser.PasswordHash = hasher.HashPassword(GuestUser, "guest123");
+        }
         public DbSet<Post> Posts { get; set; }
         public DbSet<MainComment> MainComments { get; set; }
         public DbSet<SubComment> SubComments { get; set; }
@@ -49,12 +69,5 @@ namespace MyDrawingJourney.Data
         public DbSet<Song> Songs { get; set; }
     }
 
-    public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>
-    {
-        public void Configure(EntityTypeBuilder<ApplicationUser> builder)
-        {
-            builder.Property(u => u.FirstName).HasMaxLength(255);
-            builder.Property(u => u.LastName).HasMaxLength(255);
-        }
-    }
+   
 }
