@@ -8,6 +8,7 @@ using MyDrawingJourney.Services;
 using Microsoft.AspNetCore.SignalR;
 using MyDrawingJourney.Hubs;
 using MyDrawingJourney.Infrastructure;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +28,12 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
     })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddControllersWithViews();
+//builder.Services.AddControllersWithViews(options=>
+//{
+//    options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+//});
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IEmailSender, SendMail>();
 builder.Services.AddScoped<IPostService, PostService>();
