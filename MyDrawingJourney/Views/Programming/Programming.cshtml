@@ -1,10 +1,46 @@
 ﻿@using System.Text.Encodings.Web;
 @inject JavaScriptEncoder encoder;
-@{
-    //var untrestedInput = "<\"script\">";
-}
+
 @{
     ViewData["Title"] = "Programming";
+}
+@{
+    var txt ="";
+    if (DateTime.Now.Hour > 12)
+    {
+        txt = "Good Evening!";
+    }
+    else
+    {
+        txt = "Good Morning!";
+    }
+
+    var weekDay = DateTime.Now.DayOfWeek;
+    var day = weekDay.ToString();
+    var message = "";
+
+    @switch (day)
+    {
+        case "Monday":
+            message= "This is the first weekday. Four days till weekend";
+            break;
+            case "Thuesday":
+            message = "Three days before weekend.";
+            break;
+            case "Wednesday":
+            message = "Only two day before weekend.";
+            break;
+            case "Thursday":
+            message = "Only one day before weekend.";
+            break;
+            case "Friday":
+            message = "Time for the weekend";
+            break;
+            default:
+            message = "Weekend!";
+            break;
+
+    }
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -76,6 +112,7 @@ section::after {
 
 
 </style>
+
 </head>
 <body>
 
@@ -161,7 +198,7 @@ section::after {
         <input type="submit" value="Submit">
     </form>
             @{
-                var message = ViewBag.Message;
+                var msg = ViewBag.Message;
             }
     <p>@message</p>
     <br />
@@ -278,12 +315,154 @@ The main advantages and goals of OOP are to make complex software faster to deve
         </div>
     </div>
     </form>
+    <br />
+    <p>
+        We've learned about the <i>Internet</i> that uses fiber, optiocs, satellites, cell phone network and others for transmission.
+        We get indirectly connected through ISP(Internet Service Provider). The <b>history</b> begins with electronic computers in the 50s, packet switching in the late 60s, 
+        the internet protocol in the 70s, and in the 80s Tim Berners-Lee created the www. Some of the protocols that internet uses are
+        <i>tcp</i>,<i>quic</i>,<i>udp</i>,<i>srp</i>,<i>ip</i>,<i>http</i>,<i>ssh</i>, and others.<b>TCP</b> for example stands for Transmission Control Protocol. It uses the header info in 
+        each packets and knows how many they are, how large it should be, in which order the packets should be etc.
+        We had a whole lecture about <b>HTTP</b> Protocol. It is stateless, which means thateach request is independant. It is text-based, general purpose and relies on URLs, it uses request-response model.
+        An <i>http request message</i> has http request line, request method(GET/POST) protocol version, http request headers, request body. A response message 
+        has http response status line with status phrase, status code(1 for informational, 2 for successful, 3 redirection, 4 client error, 5 server error), protocol version, response headers,
+        which provide meta data about the returned resource. and responce body. To sum up a protocol is a set of rules, which define how to or more parties are talking to each other. Web routing is a mechanism where http requests
+        are routed to the code that handles them.
+        <br/>
+        In the lectures about<b>ASP.NET Core</b> we learned about model validation, model binding, entity framework, routing, dependency injection, which injects objects at runtime, tah helpers, the MVC pattern and a lot more.
+        About the asp.net <i>Databases</i> we learned that it uses the standard ORM framework for .Net, namely EntityFramework, which has automatic change tracking, LINQ and CRUD, works with many relational databases and it's open source. 
+        The code first approach which enables database persistence with no configuration, change to code can be reflected. 
+        We were taught about <i>Identity</i>. Authentication being the process of veryfing the identity of a user or computer. Authorization the process of determining what a user is permitted to do on a computer on network.
+
+    </p>
+    <br />
+
+    <h2>Advanced</h2>
+   <p>In the first lecture of ASP.Net Advanced we learned about Routing and Binding, Views, DI and Services.
+       <i>Custom Model binding</i> is bridge between http request and action method parameters.
+       Data from http request is used by controller. The model binding behaviour can be customized.
+       <i>Model validation</i> occurs after model binding. There are two types - server-side and client-side. 
+       </p>
+       <br/>
+       <p>Here is some Razor syntax that show you the time and accordingly the time till the weekend</p>
+       <br/>
+       <table border="1">
+           <tr>
+               <th width="100px">Name</th>
+               <td width="100px">Value</td>
+           </tr>
+           <tr>
+               <td>Day</td><td>@DateTime.Now.Day</td>
+           </tr>
+           <tr>
+               <td>Hour</td><td>@DateTime.Now.Hour</td>
+           </tr>
+           <tr>
+               <td>Minute</td><td>@DateTime.Now.Minute</td>
+           </tr>
+       </table>
+       <br/>
+       <p>The message is @txt</p>
+       <br/>
+       <p>@message</p>
+
+       <br/>
+       Later we studied about <i>Web App</i>, which handles Requests and produces Response, ordered in pipeline, extensible and modifiable. It has different deployment environment, which determine the behavior 
+       of the app and may affect the pipeline. It also have initial configuration. The <i>Controller Context</i> is one of the main components of the request pipeline. About <i>Software deployment</i>
+       we learned that it is a must in Enterprise applications, a computer system which runs the software. The parts of the deployment are 
+       <i>Development</i>, <i>Testing</i>, <i>Staging</i> and <i>Production</i>. <br/>
+       <i>Middleware</i> is a software assembled into an app pipeline, each component handles request and responce,
+       in Asp.Net request delegates build the request pipeline.<i>Filters</i> allow you to run the code before or after specific stages 
+       in the request Process Pipeline, similiar but not the same as Middleware.<i>Attributes</i> allow filters to accept arguments.
+       <i>Dependency injection</i> attributes are added directly to Controller and Action methods, parameters must be supplied where the attributes are applied. 
+       <br/>
+       We learned about <b>Web Api</b>. About <i>JSON</i>(JavaScript Object Notation), which is an open-standard file format, that uses human-readable text to transmit data objects. 
+       Data objects consist of attribute-value pairs or array data types. It is language-independant. Json is commonly used as a replacement for XML in AJAX systems. It does not support schemas or namespaces.
+       <i>XML</i>(Extensible Markup Language) defines a set of rules for encoding documents. Similar to Json, it has strong support for different human languages via Unicode, has many applications, used in SOA, for configuration of .NET apps, in MIcrosoft
+       Office formats.<i>JavaScript</i> enables dynamics and interactivity in web pages, has DOM and browser API. It is untyped language. One of the most important techniques around JS is AJAX(Assynchronous JavaScript and XML).
+       <i>TypeScript</i> is a typed superset of JS that compiles to plain JS.
+       <i>AJAX</i> is not a programming language, it is a set of web development techniques, used to create asynchronous web applications.
+       With AJAx you can read data from a web server after the page has loaded, update a web page without reloading the page,
+       send data to a web server in the background.It is used to make a smooth changes on the page, ensuring better UX design and dynamic UI.
+       <i>JQuery</i> is a cross-browser JavaScript library. It simplifies DOM manipulation. Jquery simplifies how developers make AJAX calls. 
+       <i>API</i>(Application Programming Interface) is design for a communication between system components.
+       Set of functions and specification. Examples are JDBC, Windows API, Web Audio API. 
+       <i>Web Services</i> implement communication between software systems or components over the network. Using standard protocols. All web services are APIs, but not all APIs are web services.
+       RESTful APIs is the most popular Wen service standard. A WEB API is application programming interface.
+       <br/>
+       <p/>
+       <p>
+       Here are some examples of JQuery
+       </p>
+       <br />
+       <h2 class="h2tohide">This is a heading that will be hidded when the button is clicked.</h2>
+       <br/>
+       <button class="tohide">Click to toggle heading</button>
+       <br/>
+       <br/>
+       <p>Click the button for the square to move with the help of JQuery.</p>
+       
+       
+       <button class="divbuttontomove">Move square</button>
+       <br/>
+       <div class="divtomove" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+
+       <p>We can use JQuery and Ajax to load an external document</p>
+      
+       <div class="divtochange">Let JQuery and Ajax change this text.</div>
+       <br/>
+       <button class="btntochange">Get external content</button>
+       <p>
+       <i>Angular</i> is framwork for building complex front- end apps. It is a rewritten on MIcrosoft's TypeScript language. Angular does not have a concept of scope or controllers.
+       It is cross pratform, great tooling, huge community, easy testing, can be used with any back-end.
+
+       <br/>
+       We learned about <b>Common Security Problems</b> like SQL injection, parameter tampering, too much information in Errors, brute force attacks, etc.
+       To avoid SQL injection for example we have to parameterize SQL queries to stored procedures, escape to sanitize all user input, and that exception should reveal minimum information.
+       <i>Cross-side request forgery</i> is done over HTTP protocol, by using cookies.We have to use anti-forgery tokens, include additional authentication, restful design. CORS protection.
+       <br/>
+       We extended ou knowledge about <b>Identity</b>. Application requires identity information through <i>Claims</i>. The subject making the claim is called a provider.
+       It simplifies authentication loggin. Identity may belong to one or more <i>Roles</i>. <i>JWT</i> is a method for representing claims. We learnes about different authentication types.
+       <br/>
+
+       We had a lecture about Project Architecture. We learned about different application designs. About <i>Monolitic apps</i> for small and mid size projects, which deployment and maintainance are easy.
+       <i>Service-oriented</i> apps, which are using Enterprise Service Bus and <i>Microservices</i>
+       based on lots of small app loosely coupled services, with continuous deployment.
+
+       We were taught about <i>Razor Pages</i>, <i>AuthoMapper</i>, <i>Repositories</i> and <i>EF</i>.
+       
+       
+
+   </p>
     </article>
 </section>
 <hr/>
 
 
+@*<script src="~/lib/jquery/dist/jquery.js"></script>*@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    $(document).ready(        
+        function (){
+        $(".tohide").click(function(){
+            $(".h2tohide").toggle();
+             });
+            $(".divbuttontomove").click(function(){
+            $(".divtomove").animate({left: '250px'});
+             });
+            $(".btntochange").click(function(){
+            $(".divtochange").load("~/text/TextFile.txt")
+            });
+     });  
 
+   
+
+    
+</script>
 </body>
 </html>
 

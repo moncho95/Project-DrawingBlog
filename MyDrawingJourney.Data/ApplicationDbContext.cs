@@ -26,7 +26,7 @@ namespace MyDrawingJourney.Data
             builder.ApplyConfiguration(new ForumPostEntityConfiguration());
             builder.ApplyConfiguration(new SongEntityConfiguration());
             builder.ApplyConfiguration(new PaintingEntityConfiguration());
-            //builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
+            builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
 
             base.OnModelCreating(builder);
             SeedUsers();
@@ -67,6 +67,7 @@ namespace MyDrawingJourney.Data
         public DbSet<ForumPost> ForumPosts { get; set; }
         public DbSet<Painting> Paintings { get; set; }
         public DbSet<Song> Songs { get; set; }
+        public DbSet<Note> Notes { get; set; }
     }
 
    

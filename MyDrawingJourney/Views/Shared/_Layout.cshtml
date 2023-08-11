@@ -68,27 +68,35 @@
                             <a class="nav-link" asp-area="" asp-controller="Blog" asp-action="Edit">Create Post
 
                             </a>
-                        </li>   
+                        </li> 
+                        @if(User.Identity.IsAuthenticated){
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="FamousPaint" asp-action="Famous">Famous Paint
 
                             </a>
                         </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Programming" asp-action="Programming">Programming journey</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Game" asp-action="Games">My Games</a>
                         </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Music" asp-action="Music">Music</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Forum" asp-action="All">Forum</a>
+
+                            </li>
+                        }
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Music" asp-action="Music">Music</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Forum" asp-action="All">Forum</a>
-                        </li>
-                          <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Blog" asp-action="About">About me</a>
                         </li>
+
                          <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="ContactMail">Contacts</a>
                         </li>

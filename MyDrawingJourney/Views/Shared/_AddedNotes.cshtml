@@ -1,0 +1,17 @@
+﻿@model IEnumerable<PlannerViewModel>
+
+	<h1>My Notes</h1>
+<div class="d-grid gap-2 mb-2">
+		<a asp-controller="Planner" asp-action="Add" class="btn btn-primary">Add Note</a>
+	</div>
+@if (Model != null)
+{
+	<h2>Note Added to Collection</h2>
+	@foreach (var post in Model)
+	{
+		<p>@post.Content</p>
+		<form method="post">
+			<input type="submit" asp-controller="Planner" asp-action="Delete" value="Remove" asp-route-id="@post.Id">
+		</form>
+	}
+}

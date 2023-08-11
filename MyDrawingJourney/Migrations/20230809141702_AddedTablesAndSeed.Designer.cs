@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyDrawingJourney.Data;
 
@@ -11,9 +12,10 @@ using MyDrawingJourney.Data;
 namespace MyDrawingJourney.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230809141702_AddedTablesAndSeed")]
+    partial class AddedTablesAndSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,17 +182,13 @@ namespace MyDrawingJourney.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasMaxLength(12)
-                        .HasColumnType("nvarchar(12)")
-                        .HasDefaultValue("Test");
+                        .HasColumnType("nvarchar(12)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)")
-                        .HasDefaultValue("Testov");
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -242,7 +240,7 @@ namespace MyDrawingJourney.Migrations
                         {
                             Id = "bcb4f072-ecca-43c9-ab26-c060c6f364e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8777eea7-f3e9-4347-a6cb-f3c22c72fa89",
+                            ConcurrencyStamp = "72b404f0-d726-4a4e-b6a1-f4d45c1778fc",
                             Email = "admin@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Great",
@@ -250,9 +248,9 @@ namespace MyDrawingJourney.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@mail.com",
                             NormalizedUserName = "admin@mail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAELtuJ/C6JzNr+J2kGdfU3GZvORHA+CgDDgny2EZmSCRk9tJppKXVQCkJH9sbdNgEcg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHifVeuF3emTuDANh+ymGYRSsnh4PbFTZgcJrf1LRRdukE5Wx3nEk3OlEhQF3BvVAA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ac37b554-91ff-468c-b846-83b7a0b597a3",
+                            SecurityStamp = "1ee65001-49f7-4879-9de0-6502f6237047",
                             TwoFactorEnabled = false,
                             UserName = "admin@mail.com"
                         },
@@ -260,7 +258,7 @@ namespace MyDrawingJourney.Migrations
                         {
                             Id = "bcb4f072-ecca-43c9-ab26-c060c6f364e5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fbaf674b-5ba0-4b25-98d7-cbfabe025f27",
+                            ConcurrencyStamp = "4e0131b4-4f5c-44ad-8e08-752caf2ef8d4",
                             Email = "guest@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Teodor",
@@ -268,9 +266,9 @@ namespace MyDrawingJourney.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "guest@mail.com",
                             NormalizedUserName = "guest@mail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJ/bcTZ8rCOLf9VRQchoswlqzFJ8ZMFRNM7i+pR/chrMLrpap0B6FzdGpOBBkZciFQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG2c4fcWF9l2gHMobFwZSLqRaZ4Q0Gvq63laTZ4Jd8bVX152i+UrU7GoSynhbtv2AA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6b8a453f-2d2a-4411-bb5c-80905bf36abe",
+                            SecurityStamp = "b88ad061-2e37-4161-b511-76b5311f9bdc",
                             TwoFactorEnabled = false,
                             UserName = "guest@mail.com"
                         });
@@ -352,23 +350,23 @@ namespace MyDrawingJourney.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("171e56a3-3754-4fb6-9fd2-4c32027bc64e"),
+                            Id = new Guid("5eeb8383-ca00-4b6f-8518-c28b851ea156"),
                             Content = "Drawing with watercolor has its challengeses, but there is nothing more pleasent...",
-                            CreatedOn = new DateTime(2023, 8, 9, 17, 23, 21, 139, DateTimeKind.Local).AddTicks(5860),
+                            CreatedOn = new DateTime(2023, 8, 9, 17, 17, 1, 750, DateTimeKind.Local).AddTicks(5341),
                             Title = "Drawing with watercolor"
                         },
                         new
                         {
-                            Id = new Guid("a0cf63ea-5e6c-4e43-b489-c457a6e966ac"),
+                            Id = new Guid("bf33d617-f4e0-46d9-8730-a3ae37419454"),
                             Content = "Drawing with gouache is best suited for illustration work...",
-                            CreatedOn = new DateTime(2023, 8, 9, 17, 23, 21, 139, DateTimeKind.Local).AddTicks(6101),
+                            CreatedOn = new DateTime(2023, 8, 9, 17, 17, 1, 750, DateTimeKind.Local).AddTicks(5516),
                             Title = "Drawing with gouache"
                         },
                         new
                         {
-                            Id = new Guid("df1b28f4-a3a4-44b7-8d1a-82129d05dc89"),
+                            Id = new Guid("a90c5ea8-c7f5-4265-ad77-f08698a59127"),
                             Content = "Drawing with oil is so difficult...",
-                            CreatedOn = new DateTime(2023, 8, 9, 17, 23, 21, 139, DateTimeKind.Local).AddTicks(6133),
+                            CreatedOn = new DateTime(2023, 8, 9, 17, 17, 1, 750, DateTimeKind.Local).AddTicks(5538),
                             Title = "Drawing with oil"
                         });
                 });
@@ -417,14 +415,14 @@ namespace MyDrawingJourney.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("641d8008-35f8-44d3-8bd8-d1d426bc5071"),
+                            Id = new Guid("cd2ad4fb-5d05-4319-b4d7-9c52641b9d21"),
                             Description = "Leonardo Da Vinci's most nobulous work of art.Mona Lisa needs no introduction.",
                             ImageUrl = "https://i.pinimg.com/736x/26/8a/2d/268a2d9ef975ca928909e912bb58dfd9.jpg",
                             Name = "Mona Lisa"
                         },
                         new
                         {
-                            Id = new Guid("480fdc99-b676-4f1f-90f4-1ad4a063301a"),
+                            Id = new Guid("9a036ab2-f0f4-4c5d-8697-05decd690210"),
                             Description = "Van Gogue's most nobulous work of art.Mona Lisa needs no introduction.",
                             ImageUrl = "https://i.pinimg.com/originals/e9/ac/63/e9ac631dbfb4f4608217bd86bd0b2a4e.jpg",
                             Name = "Starry Night"
@@ -486,7 +484,7 @@ namespace MyDrawingJourney.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("91ebee35-34a7-4993-8156-91d18cb2bf51"),
+                            Id = new Guid("b8297f56-85ba-45b4-b6fa-904651cf198c"),
                             Author = "Iggy Azalea",
                             CreatedOn = new DateTime(2010, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Genre = "Rap",
@@ -494,7 +492,7 @@ namespace MyDrawingJourney.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3640f45d-48cd-457c-81b2-20bdfbfd653a"),
+                            Id = new Guid("38371da3-6e52-4030-969f-0ec0a9431831"),
                             Author = "Michael Jackson",
                             CreatedOn = new DateTime(2010, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Genre = "Pop",
@@ -502,7 +500,7 @@ namespace MyDrawingJourney.Migrations
                         },
                         new
                         {
-                            Id = new Guid("83e07396-f587-4ec3-8e79-bcf3afe5c9d7"),
+                            Id = new Guid("8c3a7bf0-77b8-497b-8253-eff65d8b956a"),
                             Author = "Queen",
                             CreatedOn = new DateTime(2010, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Genre = "Rock",

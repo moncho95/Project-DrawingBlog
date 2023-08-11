@@ -15,7 +15,7 @@ namespace MyDrawingJourney.Services
         {
             var user = await _data.Users.FindAsync(userId);
 
-            if(user== null || string.IsNullOrEmpty(user.FirstName) || string.IsNullOrEmpty(user.LastName))
+            if( string.IsNullOrEmpty(user.FirstName) || string.IsNullOrEmpty(user.LastName))
             {
                 return null;
             }

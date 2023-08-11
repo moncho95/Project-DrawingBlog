@@ -37,6 +37,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IEmailSender, SendMail>();
 builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddTransient<IPlannerService, PlannerService>();
 builder.Services.AddTransient<IPaintService, PaintService>();
 builder.Services.AddTransient<ISongService, SongService>();
 builder.Services.AddTransient<IApplicationUserService, ApplicationUserService>();

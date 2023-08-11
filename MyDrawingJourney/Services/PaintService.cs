@@ -40,6 +40,7 @@ namespace MyDrawingJourney.Services
             await this.dbContext.Paintings.AddAsync(newPost);
             await this.dbContext.SaveChangesAsync();
         }
+        
 
         public async Task DeleteByIdAsync(string id)
         {

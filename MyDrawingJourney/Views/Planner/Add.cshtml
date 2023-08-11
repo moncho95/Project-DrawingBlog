@@ -1,0 +1,10 @@
+﻿@model PlannerAddViewModel
+<h2>Add a note</h2>
+<form method="post" asp-controller="Planner" asp-action="Add">
+	<label asp-for="Content"></label>
+	<textarea name="note" asp-for="Content" class="form-control" placeholder="Write your note here..." ><</textarea>
+	<span asp-validation-for="@Model.Content" class="small text-danger" ></span>
+	<br />
+	<input type="submit" value="Add">
+</form>
+
